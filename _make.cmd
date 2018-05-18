@@ -1,2 +1,2 @@
 cls
-g++ -Wall -Wextra -o a.exe *.c
+gcc -Wall -Wextra -o a.exe *.c
