@@ -7,12 +7,15 @@
 int main() // int argc, char**argv 
 {
     // instructionList();
-    unsigned char * romBytes = 0x00;
-    int bufferSize = fileToBuffer("invaders.dat", romBytes);
-    printf("%d", bufferSize);
+    unsigned char * romBytes;
+    struct buffer fileBuf = fileToBuffer("invaders.dat");
+    printf("bufferSize:\t%d\n", fileBuf.length);
+    romBytes = fileBuf.bytes;
+    printf("%02x\t%02x\t%02x\t%02x\n", romBytes[0], romBytes[1], romBytes[2], romBytes[3]);
 
     unsigned char * disassembled = 0x00;
-    struct asmLine al = disassemble8080Char(romBytes, 0x00);
+    int pc = 1;
+    struct asmLine al = disassemble8080Char(romBytes, pc);
     printf("asm %s    pc %d", al.line, al.pc);
     return 0;
 }

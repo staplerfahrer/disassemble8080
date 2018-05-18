@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "structs.h"
 
-int fileToBuffer(const char * filename, unsigned char * buffer)
+struct buffer fileToBuffer(const char * filename)
 {
-    //FILE * f = fopen(argv[1], "rb");
     FILE * f = fopen(filename, "rb");
     
 	if (f == NULL)
@@ -16,10 +16,12 @@ int fileToBuffer(const char * filename, unsigned char * buffer)
     fseek(f, 0L, SEEK_END);
     int fsize = ftell(f);
     fseek(f, 0L, SEEK_SET);
-    buffer = (unsigned char *)malloc(fsize);
 
-    fread(buffer, fsize, 1, f);
+    struct buffer fileBuf;
+    fileBuf.bytes = (unsigned char *)malloc(fsize);
+    fileBuf.length = fsize;
+    fread(fileBuf.bytes, fsize, 1, f);
     fclose(f);
 
-	return fsize;
+	return fileBuf;
 }

@@ -1,3 +1,3 @@
 #pragma once
 
-int fileToBuffer(const char * filename, unsigned char * buffer);
+struct buffer fileToBuffer(const char * filename);

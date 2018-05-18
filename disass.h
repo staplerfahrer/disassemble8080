@@ -1,6 +1,6 @@
 #pragma once
 
-bool eof(int bufferSize, int ptr);
+_Bool eof(int bufferSize, int ptr);
 
 int disassemble8080Op(unsigned char * codeBuffer, int pc);
 

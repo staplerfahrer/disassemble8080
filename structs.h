@@ -2,7 +2,12 @@
 
 struct asmLine
 {
-    // max string length 18 + \0
-    char line[19];
+    char line[80];
     int pc;
+};
+
+struct buffer
+{
+    unsigned char * bytes;
+    int length;
 };
