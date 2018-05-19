@@ -584,6 +584,5 @@ char * disassemble8080(struct buffer * pBuffer)
 		pc = line.pc;
 	} 
 
-	printf("Requested:\t%d\tActual:\t%d", outStringLength, strlen(allAsmLines));
 	return allAsmLines;
 }
