@@ -1,4 +1,5 @@
 #include "disass.h"
+#include "structs.h"
 
 void instructionList()
 {

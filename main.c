@@ -6,6 +6,8 @@
 
 int main() // int argc, char**argv 
 {
+    printf("Started...\n");
+    
     // instructionList();
     unsigned char * romBytes;
     struct buffer fileBuf = fileToBuffer("invaders.dat");
@@ -13,15 +15,11 @@ int main() // int argc, char**argv
     romBytes = fileBuf.bytes;
     printf("%02x\t%02x\t%02x\t%02x\n\n", romBytes[0], romBytes[1], romBytes[2], romBytes[3]);
 
-    unsigned char * disassembled = 0x00;
-    int pc = 0;
-    int i = 0;
-    for (i = 0; i < 10; i++) //eof(fileBuf.length, i)
-    {
-        struct asmLine al = disassemble8080Char(romBytes, pc);
-        printf("asm %s    pc %d\n", al.line, al.pc);
-        pc = al.pc;
-    }
+    //unsigned char * disassembled = 0x00;
+    char * allAsm = disassemble8080(&fileBuf);
+    printf(allAsm);
+
+    printf("Finished.\n");
     return 0;
 }
 

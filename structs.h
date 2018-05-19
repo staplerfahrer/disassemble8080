@@ -8,6 +8,6 @@ struct asmLine
 
 struct buffer
 {
-    unsigned char * bytes;
+    unsigned char *bytes;
     int length;
 };
