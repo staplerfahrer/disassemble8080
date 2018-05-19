@@ -570,7 +570,8 @@ struct asmLine disassemble8080Line(unsigned char * codeBuffer, int pc)
 char * disassemble8080(struct buffer * pBuffer)
 {
 	struct buffer b = *pBuffer;
-	char * allAsmLines = malloc(b.length * asmLineLength());
+	int outStringLength = b.length * asmLineLength();
+	char * allAsmLines = malloc(outStringLength);
 	allAsmLines[0] = '\0';
 
 	int pc = 0;
@@ -582,6 +583,7 @@ char * disassemble8080(struct buffer * pBuffer)
 		strcat(allAsmLines, "\n");
 		pc = line.pc;
 	} 
-	//return allAsmLines;
-	return "";
+
+	printf("Requested:\t%d\tActual:\t%d", outStringLength, strlen(allAsmLines));
+	return allAsmLines;
 }
