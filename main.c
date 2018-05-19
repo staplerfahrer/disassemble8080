@@ -28,6 +28,8 @@ int main()
     end = clock();
     cpu_time_used = ((double) (end - start)) / CLOCKS_PER_SEC;
     printf("Time taken: %.3f", cpu_time_used);
+    // this may or may not fix an issue with the stdout buffer
+    fflush(stdout);
     return 0;
 }
 
