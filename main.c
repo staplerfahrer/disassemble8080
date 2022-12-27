@@ -16,7 +16,7 @@ int main()
     printf("Started...\n");
     
     struct buffer fileBuf = fileToBuffer("invaders.dat");
-    char * allAsm = disassemble8080(&fileBuf);
+    char * allAsm = disassemble8080bytes(&fileBuf);
 
     printf("Finished.\n");
 

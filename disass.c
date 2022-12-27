@@ -306,7 +306,7 @@ struct asmLine disassemble8080Line(unsigned char * codeBuffer, int pc)
 	return al;
 }
 
-char * disassemble8080(struct buffer * pBuffer)
+char * disassemble8080bytes(struct buffer * pBuffer)
 {
 	struct buffer b = *pBuffer;
 	int outStringLength = b.length * asmLineLength();
